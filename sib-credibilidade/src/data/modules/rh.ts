@@ -368,8 +368,370 @@ export const rhModule: Module = {
   ],
 },
 
+{
+  title: "Avaliações de Treinamentos — Efetividade (F148), prazo, anexos e impressão",
+  description:
+    "Controla a efetividade dos treinamentos de forma auditável, consolidando respostas em um índice de eficácia, controlando prazo por regra (término do treinamento + período em dias) e gerando evidência pronta para impressão no formulário F148.\n\n" +
 
+    "🔹 Cadastro/Edição (formulário em acordeão, orientado à evidência)\n" +
+    "• Seleção de colaborador e carregamento dinâmico dos treinamentos vinculados ao funcionário (JSON endpoint), evitando erros de associação\n" +
+    "• Campos de controle: data da avaliação e período da avaliação (dias) para cálculo automático do prazo\n" +
+    "• Até 3 responsáveis registrados na avaliação (rastreabilidade de validação/gestão)\n" +
+    "• Questionário em 3 dimensões (radios obrigatórios):\n" +
+    "  I) Grau de conhecimento atual\n" +
+    "  II) Aplicação dos conceitos na prática\n" +
+    "  III) Resultados obtidos com a aplicação\n" +
+    "• Campo de melhorias/resultados com conteúdo rico (permite detalhar evidências e impacto)\n" +
+    "• Anexo opcional como comprovante, com validação de tamanho (5MB) e upload padronizado\n\n" +
 
+    "🔹 Cálculo automático da eficácia (cliente + servidor)\n" +
+    "• Consolida as 3 respostas em um resultado final objetivo:\n" +
+    "  – Se qualquer nota for 1 → 'Pouco Eficaz'\n" +
+    "  – Caso contrário, consolida em 'Eficaz' ou 'Muito Eficaz' conforme soma\n" +
+    "• Exibe o status em tempo real no formulário com feedback visual (ícone/emoji + cor)\n" +
+    "• Reforço de consistência: caso o front não preencha, o servidor calcula automaticamente na validação\n\n" +
+
+    "🔹 Controle de prazo (conformidade e disciplina de follow-up)\n" +
+    "• Calcula data limite: data_fim do treinamento + período da avaliação (dias)\n" +
+    "• Mostra status 'Dentro do Prazo' ou 'Em Atraso' com exibição do limite\n" +
+    "• Verificação também disponível no front (feedback imediato) e no back (fonte de verdade)\n\n" +
+
+    "🔹 Lista de Avaliações com KPIs e filtros (gestão)\n" +
+    "• Filtros por: treinamento, colaborador e intervalo de datas\n" +
+    "• KPIs no topo: total, muito eficaz, eficaz e pouco eficaz\n" +
+    "• Tabela com badges de eficácia (aguardando/pouco/eficaz/muito) e badge de prazo (dentro/atraso)\n" +
+    "• Paginação e performance: select_related + paginação padrão\n\n" +
+
+    "🔹 Visualização e impressão (evidência pronta)\n" +
+    "• Tela de visualização com mapeamento claro das respostas (I, II, III), responsáveis, melhorias e avaliação geral\n" +
+    "• Impressão com destaque da alternativa selecionada e seção de assinaturas\n" +
+    "• Rodapé padronizado do formulário: F148 Rev.01\n\n" +
+
+    "Resultado: uma trilha objetiva de eficácia por treinamento, com controle de prazo e documentação pronta para auditoria interna/externa.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/treinamentos/avaliacoes-lista.png",
+      title: "Lista de Avaliações (KPIs + prazo + eficácia)",
+      caption:
+        "KPIs de efetividade, filtros, badges de prazo e ações (editar/imprimir/anexo).",
+    },
+    {
+      kind: "image",
+      src: "/media/rh/treinamentos/avaliacao-impressao-f148.png",
+      title: "Impressão (F148 Rev.01)",
+      caption:
+        "Relatório com respostas destacadas, melhorias e assinaturas, pronto para auditoria.",
+    },
+  ],
+},
+{
+  title: "Avaliação de Desempenho Anual — F176B, classificação automática e impressão",
+  description:
+    "Realiza a avaliação anual do colaborador com questionário padronizado (10 critérios), cálculo automático de percentual e classificação final (Ruim/Regular/Bom/Ótimo), filtros gerenciais por colaborador/departamento/período e geração de evidência pronta para auditoria (impressão F176B).\n\n" +
+
+    "🔹 Cadastro/Edição (formulário guiado e auditável)\n" +
+    "• Avaliação vinculada a um colaborador ativo, com seleção via Select2 e ordenação por nome\n" +
+    "• Preenchimento automático de Cargo e Departamento a partir do colaborador (consulta via endpoint), reduzindo erro de digitação\n" +
+    "• Centro de custo normalizado automaticamente (Title Case) para padronização de relatórios\n" +
+    "• Questionário com 10 itens obrigatórios (notas 1 a 4):\n" +
+    "  – Postura em Segurança do Trabalho\n" +
+    "  – Qualidade e Produtividade\n" +
+    "  – Trabalho em Equipe\n" +
+    "  – Comprometimento\n" +
+    "  – Disponibilidade para Mudanças\n" +
+    "  – Disciplina\n" +
+    "  – Rendimento sob Pressão\n" +
+    "  – Proatividade\n" +
+    "  – Comunicação\n" +
+    "  – Assiduidade\n" +
+    "• Avaliações globais em texto rico (CKEditor): visão do avaliador e autoavaliação do avaliado\n" +
+    "• Anexo opcional (PDF/DOC/DOCX) com limite de 5MB e renomeação automática do arquivo (padrão por colaborador + data)\n" +
+    "• Remoção segura de anexo na edição: apaga o arquivo físico e limpa o campo antes de salvar\n\n" +
+
+    "🔹 Cálculo automático e feedback em tempo real (nota e classificação)\n" +
+    "• Soma dos 10 itens e cálculo do percentual (base 40 pontos)\n" +
+    "• Classificação automática por faixa:\n" +
+    "  – 25% a 45% → Ruim\n" +
+    "  – 46% a 65% → Regular\n" +
+    "  – 66% a 84% → Bom\n" +
+    "  – 85% a 100% → Ótimo\n" +
+    "• Barra de status sticky no topo com percentual e progress bar (feedback imediato enquanto o avaliador preenche)\n" +
+    "• Ao detectar campos preenchidos, abre automaticamente o acordeão do questionário (reduz cliques e acelera conclusão)\n\n" +
+
+    "🔹 Lista gerencial (KPIs + filtros por offcanvas)\n" +
+    "• Filtros: colaborador, departamento e período de avaliação (data início/fim), com validação de formato\n" +
+    "• KPIs: total de avaliações e totais por classificação (Ótimo/Bom/Regular/Ruim)\n" +
+    "• Tabela com badges por classificação + percentual e ações controladas por permissão (visualizar/editar/excluir/imprimir)\n" +
+    "• Paginação para manter performance e leitura confortável\n\n" +
+
+    "🔹 Visualização e impressão (evidência formal)\n" +
+    "• Visualização detalhada com:\n" +
+    "  – Percentual e classificação (badge)\n" +
+    "  – Tradução dos campos numéricos para texto (Ruim/Regular/Bom/Ótimo)\n" +
+    "  – Data/hora de geração do relatório\n" +
+    "• Impressão completa no formulário F176B Rev.07 com:\n" +
+    "  – Tabela do questionário com marcação visual da alternativa selecionada\n" +
+    "  – Avaliações globais (avaliador/avaliado)\n" +
+    "  – Campos de assinatura do colaborador e do gestor\n\n" +
+
+    "🔹 Fluxo simplificado (cadastro rápido via modal)\n" +
+    "• Formulário tipo ‘wizard’ (etapas) com barra de progresso\n" +
+    "• Salva via fetch (retorna JSON com ID) e oferece modal de impressão imediata após salvar\n" +
+    "• Ideal para coletar avaliações em sequência com menor fricção operacional",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/avaliacao-anual/lista-kpis.png",
+      title: "Lista de avaliações anuais (KPIs e filtros)",
+      caption:
+        "KPIs por classificação, filtros via offcanvas e ações por permissão (visualizar/editar/imprimir).",
+    },
+    {
+      kind: "image",
+      src: "/media/rh/avaliacao-anual/impressao-f176b.png",
+      title: "Impressão (F176B Rev.07)",
+      caption:
+        "Relatório com questionário marcado, avaliações globais e campos de assinatura.",
+    },
+  ],
+},
+
+{
+  title: "Avaliação de Experiência — Cálculo automático, orientação (Efetivar/Treinamento/Desligar) e impressão (F176A)",
+  description:
+    "Avalia o desempenho do colaborador no período de experiência com critérios objetivos, cálculo automático de orientação e evidência pronta para auditoria: cadastro em acordeão, filtros gerenciais, visualização detalhada e impressão formal (F176A Rev.05).\n\n" +
+
+    "🔹 Cadastro/Edição (formulário guiado por etapas)\n" +
+    "• Identificação do colaborador com seleção apenas de Ativos e busca (Select2)\n" +
+    "• Campos de apoio preenchidos automaticamente para reduzir erro: cargo, departamento e superior direto (somente leitura)\n" +
+    "• Questionário com 4 critérios pontuados (1 a 4):\n" +
+    "  – Adaptação ao Trabalho\n" +
+    "  – Interesse\n" +
+    "  – Relacionamento Social\n" +
+    "  – Capacidade de Aprendizagem\n" +
+    "• Campo de Observações para registrar fatos/evidências (texto)\n" +
+    "• Anexo opcional com governança: renomeação padronizada e limite de 5MB\n\n" +
+
+    "🔹 Cálculo automático de status e orientação (regra de negócio clara)\n" +
+    "• Soma dos pontos e conversão em percentual (base 16 pontos)\n" +
+    "• Regra de decisão automática:\n" +
+    "  – ≥ 85% → Efetivar (Ótimo)\n" +
+    "  – ≥ 66% → Efetivar (Bom)\n" +
+    "  – ≥ 46% → Encaminhar p/ Treinamento (Regular)\n" +
+    "  – < 46% → Desligar (Ruim)\n" +
+    "• Campo “Status da Avaliação” é preenchido automaticamente a partir das respostas\n" +
+    "• Exibição com badges/ícones coerentes na lista e na impressão (Efetivar/Treinamento/Desligar)\n\n" +
+
+    "🔹 Controle de prazo (30 dias) para disciplina de follow-up\n" +
+    "• Verifica se a avaliação está dentro do prazo padrão de 30 dias\n" +
+    "• Retorna status ‘Dentro do Prazo’ ou ‘Em Atraso’ para gestão\n\n" +
+
+    "🔹 Lista gerencial (KPIs + filtros offcanvas)\n" +
+    "• Filtros: colaborador e período (data início/fim)\n" +
+    "• KPIs no topo: Total de Avaliações, Efetivar, Treinamento e Desligar\n" +
+    "• Tabela escaneável com ícones por coluna e badges de orientação\n" +
+    "• Ações por permissão: visualizar, editar, imprimir e excluir\n\n" +
+
+    "🔹 Visualização e impressão (evidência auditável)\n" +
+    "• Visualização detalhada com o texto completo correspondente às notas escolhidas em cada critério\n" +
+    "• Impressão com mapeamento ‘Item avaliado’ → ‘Descrição da resposta’, observações e assinaturas\n" +
+    "• Rodapé institucional padronizado: F176A Rev.05\n\n" +
+
+    "Resultado: avaliação objetiva do período de experiência com orientação automatizada e documentação pronta para auditoria e decisão (efetivar, treinar ou desligar).",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/avaliacao-experiencia/lista.png",
+      title: "Lista de Avaliações de Experiência",
+      caption:
+        "KPIs (Efetivar/Treinamento/Desligar), filtros offcanvas e ações por permissão (visualizar/editar/imprimir).",
+    },
+    {
+      kind: "image",
+      src: "/media/rh/avaliacao-experiencia/impressao-f176a.png",
+      title: "Impressão (F176A Rev.05)",
+      caption:
+        "Relatório com descrições completas por critério, observações e campos de assinatura.",
+    },
+  ],
+},
+{
+  title: "Job Rotation — Gestão do ciclo (RH → Colaborador → Gestor) com rastreabilidade",
+  description:
+    "Controla o processo de Job Rotation do início ao fim: abertura pelo RH, registro de avaliações, evidências (anexos), decisão final e formalização (impressão/PDF) — com governança e trilha auditável.\n\n" +
+
+    "🔹 Cadastro e acompanhamento pelo RH\n" +
+    "• Cadastro de avaliação de Job Rotation com seleção de funcionário e cargos envolvidos (cargo atual / nova função)\n" +
+    "• Campos para avaliação do gestor e do colaborador, além da avaliação do RH e indicador de disponibilidade de vaga\n" +
+    "• Upload de anexo (evidências) e suporte a remoção do anexo na edição\n\n" +
+
+    "🔹 Regras automáticas que reduzem retrabalho\n" +
+    "• Se RH marcar “Prorrogar”: o sistema soma dias de prorrogação ao término previsto do ciclo\n" +
+    "• Se RH marcar “Apto”: o sistema atualiza automaticamente o cargo atual do funcionário para a nova função (formalização do movimento)\n\n" +
+
+    "🔹 Lista com filtros, totais e paginação\n" +
+    "• Listagem das avaliações com filtros e paginação para organização do histórico\n" +
+    "• Apuração de totais/resumos do conjunto filtrado para leitura gerencial\n\n" +
+
+    "🔹 Impressão e exportação PDF (padrão de formulário)\n" +
+    "• Visualização “imprimível” do Job Rotation e opção de download em PDF\n" +
+    "• Padronização do documento com blocos claros: treinamentos realizados/requeridos/propostos e avaliações\n\n" +
+
+    "🔹 Avaliações do Colaborador e do Gestor em duas abas (workflow completo)\n" +
+    "• Formulário em DUAS ABAS: Colaborador e Gestor — salvando por etapa, sem misturar responsabilidades\n" +
+    "• Ao salvar, o sistema aplica assinatura eletrônica (carimbo com dados do assinante + hash) e gera QR para verificação\n" +
+    "• Permite preenchimento via link público com token (quando aplicável), reduzindo atrito de coleta\n\n" +
+
+    "🔹 Automação de disparo (quando RH aprova)\n" +
+    "• Ao RH definir “Apto”, o sistema cria (ou garante) os registros de avaliação do Colaborador e do Gestor e envia e-mails com links de preenchimento\n\n" +
+
+    "Resultado prático: um fluxo de Job Rotation que sai do “controle em planilha” e vira processo governado — com evidência, assinatura e documento final pronto para auditoria.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/jobrotation/lista-jobrotation.png",
+      title: "Job Rotation — Lista e gestão",
+      caption: "Listagem com filtros/paginação e acesso às ações (visualizar, editar, imprimir/PDF).",
+    },
+    {
+      kind: "image",
+      src: "/media/rh/jobrotation/avaliacoes-abas.png",
+      title: "Job Rotation — Avaliações em abas + assinatura",
+      caption: "Avaliação do Colaborador e do Gestor em abas separadas, com assinatura eletrônica e QR de verificação.",
+    },
+  ],
+},
+
+{
+  title: "Matriz de Polivalência — Mapeamento de competências, níveis e evidências",
+  description:
+    "Gerencia a Matriz de Polivalência dos colaboradores, permitindo mapear competências por função/processo, classificar níveis de domínio, identificar lacunas de capacitação e gerar evidências formais para auditoria e tomada de decisão.\n\n" +
+
+    "🔹 Estrutura da matriz (base organizacional)\n" +
+    "• Associação por Departamento / Setor / Função\n" +
+    "• Linhas representando colaboradores e colunas representando atividades, processos ou operações\n" +
+    "• Suporte a múltiplas matrizes por área (escalável e segmentado)\n\n" +
+
+    "🔹 Níveis de polivalência (leitura rápida e padronizada)\n" +
+    "• Classificação por níveis numéricos/visuais (ex.: 0 a 4)\n" +
+    "• Significado claro por nível: Não treinado, Em treinamento, Executa com apoio, Executa sozinho, Multiplicador\n" +
+    "• Representação visual por cores/badges para leitura imediata\n\n" +
+
+    "🔹 Atualização e governança dos registros\n" +
+    "• Atualização manual controlada (gestor/RH) ou vinculada a treinamentos concluídos\n" +
+    "• Registro de data da última atualização por célula (rastreabilidade)\n" +
+    "• Campo de observações para justificar evolução ou regressão de nível\n\n" +
+
+    "🔹 Análise gerencial (gaps e riscos)\n" +
+    "• Identificação rápida de gargalos: atividades críticas com poucos colaboradores habilitados\n" +
+    "• Apoio ao planejamento de treinamentos e Job Rotation\n" +
+    "• Visão clara de redundância operacional (quem pode substituir quem)\n\n" +
+
+    "🔹 Filtros e navegação\n" +
+    "• Filtro por departamento, função e colaborador\n" +
+    "• Busca rápida por nome ou atividade\n" +
+    "• Persistência de filtros para manter contexto de análise\n\n" +
+
+    "🔹 Impressão e evidência formal\n" +
+    "• Impressão da matriz em layout padronizado (formulário interno)\n" +
+    "• Cabeçalho com identificação da área, período e responsável\n" +
+    "• Documento pronto para auditorias internas/externas (IATF / ISO / SGQ)\n\n" +
+
+    "Resultado: visão clara da capacidade operacional da empresa, redução de riscos por ausência de pessoal-chave e base objetiva para decisões de treinamento, promoção e rotação.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/matriz-polivalencia/matriz.png",
+      title: "Matriz de Polivalência",
+      caption:
+        "Matriz por função/processo com níveis de domínio, cores e leitura rápida para gestão e auditoria.",
+    },
+  ],
+},
+{
+  title: "Relatórios e Indicadores — Visão gerencial, evidências e apoio à decisão",
+  description:
+    "Consolida dados estratégicos do RH em relatórios operacionais e indicadores visuais, permitindo análise rápida de conformidade, desempenho e evolução das pessoas — com saídas prontas para auditoria e gestão.\n\n" +
+
+    "🔹 Indicadores consolidados (KPIs de RH)\n" +
+    "• Indicadores de Treinamentos: horas-pessoa, status (planejado/em andamento/concluído) e distribuição por período\n" +
+    "• Indicadores de Avaliações: eficácia de treinamentos, desempenho anual e experiência (classificações consolidadas)\n" +
+    "• Indicadores de Presença: eventos realizados, participantes e carga horária total\n" +
+    "• Indicadores de Polivalência: níveis por função/processo e identificação de gargalos operacionais\n\n" +
+
+    "🔹 Relatórios operacionais (prontos para auditoria)\n" +
+    "• Relatórios por colaborador, departamento e período\n" +
+    "• Consolidação de histórico individual (treinamentos, avaliações, presença e evolução)\n" +
+    "• Relatórios comparativos entre áreas (apoio à priorização de capacitação)\n\n" +
+
+    "🔹 Filtros avançados e persistentes\n" +
+    "• Filtros por colaborador, departamento, função, status e intervalo de datas\n" +
+    "• Persistência de filtros em sessão para manter contexto analítico\n" +
+    "• Combinação livre de filtros para análises específicas (auditoria, gestão ou planejamento)\n\n" +
+
+    "🔹 Visualização clara e orientada à decisão\n" +
+    "• Gráficos e tabelas com leitura imediata (cores, badges e totais)\n" +
+    "• Destaque automático para situações críticas (atrasos, baixo desempenho, lacunas de capacitação)\n" +
+    "• KPIs resumidos no topo para leitura executiva\n\n" +
+
+    "🔹 Exportação e evidência formal\n" +
+    "• Exportação para Excel dos dados filtrados\n" +
+    "• Impressão de relatórios em layout padronizado do SGQ\n" +
+    "• Documentos prontos para auditorias internas e externas (IATF / ISO)\n\n" +
+
+    "Resultado: o RH deixa de ser apenas operacional e passa a atuar de forma analítica, com dados confiáveis, rastreáveis e acionáveis para gestão e conformidade.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/relatorios-indicadores/dashboard.png",
+      title: "Relatórios e Indicadores de RH",
+      caption:
+        "Painel consolidado com KPIs, filtros e relatórios prontos para gestão e auditoria.",
+    },
+  ],
+},
+{
+  title: "Formulários (RH/SGQ) — Biblioteca viva com impressão padronizada e evidência",
+  description:
+    "Centraliza os formulários oficiais do RH/SGQ já implementados no SIB, garantindo padronização (código + revisão), impressão pronta e rastreabilidade do que foi aplicado.\n\n" +
+
+    "🔹 Formulários existentes no sistema (código / revisão)\n" +
+    "• F003 Rev.04 — Relatório F003 (Treinamentos)\n" +
+    "  – Evidência consolidada por colaborador/treinamento, pronta para auditoria\n\n" +
+
+    "• F013 Rev.03 — Lista de Presença do Treinamento\n" +
+    "  – Impressão com dados do evento, participantes (nome/setor) e campos de visto\n" +
+    "  – Seção do Gestor da Qualidade (necessita avaliação de eficácia)\n\n" +
+
+    "• F148 Rev.01 — Avaliação de Treinamento (Efetividade)\n" +
+    "  – Impressão da avaliação com respostas, eficácia consolidada e evidência formal\n\n" +
+
+    "• F150 Rev.05 — Levantamento de Necessidades de Treinamento\n" +
+    "  – Documento de levantamento por área/período para planejamento e auditoria\n\n" +
+
+    "• F176A Rev.05 — Avaliação de Experiência\n" +
+    "  – Impressão com critérios, observações e resultado (Efetivar/Treinamento/Desligar)\n\n" +
+
+    "• F176B Rev.07 — Avaliação de Desempenho Anual\n" +
+    "  – Impressão com questionário completo, percentual/classificação e assinaturas\n\n" +
+
+    "🔹 Padronização aplicada na prática\n" +
+    "• Rodapé institucional único com identificação do formulário (código e revisão)\n" +
+    "• Saída pronta para impressão/auditoria (sem precisar montar documento manual)\n" +
+    "• Mantém coerência documental entre RH e SGQ, reduzindo risco de uso de modelo errado.\n\n" +
+
+    "Observação: a Lista Mestra MRQ001 também existe no módulo de Documentos como matriz consolidada do controle documental.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/formularios/rodapes-formularios.png",
+      title: "Rodapés com código e revisão",
+      caption:
+        "Identificação padronizada do formulário (ex.: F013 Rev.03, F148 Rev.01, F176A Rev.05, F176B Rev.07...).",
+    },
+  ],
+},
 
 
     
