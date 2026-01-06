@@ -6,41 +6,68 @@ export default function StackAndPrinciples() {
       id="stack"
       kicker="Tecnologia"
       title="Stack e Padrões de Construção"
-      subtitle="Aqui é o ‘porquê’ das escolhas e o padrão de engenharia — não a organização do sistema."
+      subtitle="Aqui está o porquê das escolhas e o padrão de engenharia — não a organização do sistema."
     >
       <div className="grid grid-3">
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Critérios de Decisão</h3>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>🎯 Critérios de Decisão</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
+            <span className="badge">previsibilidade</span>
+            <span className="badge">auditoria</span>
+          </div>
+
           <p className="p">
-            O stack foi escolhido para reduzir risco operacional e manter previsibilidade de evolução
-            em um ambiente industrial.
+            Stack escolhida para reduzir risco operacional e manter evolução estável em ambiente industrial.
           </p>
-          <ul style={{ marginTop: "0.85rem", paddingLeft: "1.1rem" }}>
+
+          <ul className="archList">
             <li>Confiabilidade e manutenção a longo prazo</li>
             <li>Facilidade de auditoria e rastreio de mudanças</li>
-            <li>Entrega incremental sem “quebrar” o fluxo</li>
+            <li>Entrega incremental sem “quebrar” fluxo</li>
           </ul>
         </div>
 
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Por que Django + PostgreSQL</h3>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>🐍 Por que Django + PostgreSQL</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
+            <span className="badge">ORM</span>
+            <span className="badge">transacional</span>
+            <span className="badge">admin</span>
+          </div>
+
           <p className="p">
-            Django acelera regras e fluxos com consistência (admin, ORM, segurança e maturidade do ecossistema).
-            PostgreSQL entrega robustez transacional para registros críticos.
+            Django acelera regras e fluxos com consistência e maturidade. PostgreSQL entrega robustez
+            transacional para registros críticos.
           </p>
+
           <div className="badges" style={{ marginTop: "0.85rem" }}>
-            <span className="badge">Django 4.2.16</span>
+            <span className="badge">Django 4.2.x</span>
             <span className="badge">PostgreSQL</span>
             <span className="badge">Monólito modular</span>
           </div>
         </div>
 
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Assíncrono onde faz sentido</h3>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>⚡ Assíncrono onde faz sentido</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
+            <span className="badge">Celery</span>
+            <span className="badge">Redis</span>
+          </div>
+
           <p className="p">
-            Celery/Redis é usado para rotinas e alertas, evitando travar operações e mantendo o sistema responsivo.
+            Rotinas e alertas são processados fora do request para manter o sistema responsivo.
           </p>
-          <ul style={{ marginTop: "0.85rem", paddingLeft: "1.1rem" }}>
+
+          <ul className="archList">
             <li>Alertas e notificações</li>
             <li>Rotinas recorrentes</li>
             <li>Processamentos fora do request</li>
@@ -48,22 +75,42 @@ export default function StackAndPrinciples() {
         </div>
 
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Padrão de Release</h3>
-          <p className="p">
-            SemVer e branches padronizadas garantem leitura clara do que mudou e previsibilidade para deploy.
-          </p>
-          <div className="badges" style={{ marginTop: "0.85rem" }}>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>🚀 Padrão de Release</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
             <span className="badge">SemVer</span>
-            <span className="badge">main / feat / hotfix</span>
-            <span className="badge">Tags de release</span>
+            <span className="badge">branches</span>
+          </div>
+
+          <p className="p">
+            Versionamento e branches padronizados para leitura clara do que mudou e previsibilidade de deploy.
+          </p>
+
+          <div className="badges" style={{ marginTop: "0.85rem" }}>
+            <span className="badge">main</span>
+            <span className="badge">feat</span>
+            <span className="badge">hotfix</span>
+            <span className="badge">tags</span>
           </div>
         </div>
 
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Padrão de Qualidade</h3>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>✅ Padrão de Qualidade</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
+            <span className="badge">estilo</span>
+            <span className="badge">tipagem</span>
+            <span className="badge">segurança</span>
+          </div>
+
           <p className="p">
-            Estilo, segurança e tipagem são tratados como rotina de engenharia, não como etapa final.
+            Qualidade tratada como rotina de engenharia, não como etapa final.
           </p>
+
           <div className="badges" style={{ marginTop: "0.85rem" }}>
             <span className="badge">black</span>
             <span className="badge">isort</span>
@@ -74,13 +121,23 @@ export default function StackAndPrinciples() {
         </div>
 
         <div className="card">
-          <h3 style={{ marginTop: 0 }}>Evidência como Entregável</h3>
+          <div className="cardTitleRow">
+            <h3 style={{ marginTop: 0 }}>🧾 Evidência como Entregável</h3>
+          </div>
+
+          <div className="badges" style={{ marginTop: "0.4rem" }}>
+            <span className="badge">prints</span>
+            <span className="badge">vídeos</span>
+            <span className="badge">PDF</span>
+          </div>
+
           <p className="p">
-            Prints, vídeos e PDFs não são “anexos”: são parte do padrão de entrega, com contexto e LGPD.
+            Evidência não é “anexo”: é parte do padrão de entrega, com contexto e proteção de dados.
           </p>
-          <ul style={{ marginTop: "0.85rem", paddingLeft: "1.1rem" }}>
+
+          <ul className="archList">
             <li>Contexto técnico do que a evidência comprova</li>
-            <li>Dados sensíveis mascarados</li>
+            <li>Dados sensíveis mascarados (LGPD)</li>
             <li>Documentos gerados via WeasyPrint</li>
           </ul>
         </div>
