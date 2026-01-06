@@ -270,6 +270,103 @@ export const rhModule: Module = {
   ],
 },
 
+{
+  title: "Treinamentos — Gestão completa (cadastro, controle, notificações e relatórios)",
+  description:
+    "Gerencia o ciclo completo de treinamentos do RH com rastreabilidade e regras de negócio sólidas: cadastro estruturado, filtros avançados, anexos padronizados, automações (avaliação/atualização de escolaridade), notificações por e-mail e relatórios oficiais para evidência e auditoria.\n\n" +
+
+    "🔹 Cadastro e manutenção (dados completos, sem retrabalho)\n" +
+    "• Treinamentos internos e externos, com categorização (capacitação, técnico, graduação, pós etc.)\n" +
+    "• Participantes por seleção múltipla (M2M) e descrição rica via editor (CKEditor)\n" +
+    "• Validações de domínio: data_fim ≥ data_inicio e regras condicionais (ex.: situação obrigatória quando status = Requerido)\n" +
+    "• Carga horária normalizada (aceita 8, 8h, 7.5, 7,5 → padroniza em 'h')\n" +
+    "• Certificados/anexos com governança: limite 5MB, tipos permitidos (PDF/DOC/DOCX) e nome de arquivo padronizado\n\n" +
+
+    "🔹 Lista operacional com filtros persistentes (visão gerencial)\n" +
+    "• Filtros por tipo, status, colaborador, departamento, período (término de/até) e busca livre (curso/instituição)\n" +
+    "• Persistência de filtros em sessão para manter contexto de análise\n" +
+    "• Paginação, ordenação por data de término e contagem automática de participantes\n" +
+    "• Métrica de esforço: cálculo de hora-pessoa no período (carga horária × nº de participantes)\n\n" +
+
+    "🔹 Automação e consistência dos registros\n" +
+    "• Ao concluir treinamentos de escolaridade (técnico/graduação/pós), atualiza escolaridade do colaborador automaticamente\n" +
+    "• Se 'necessita avaliação' e status concluído: cria/atualiza avaliação de eficácia por participante (padroniza follow-up)\n\n" +
+
+    "🔹 Notificações por e-mail (planejado/requerido) com controle\n" +
+    "• Disparo configurável por treinamento (switch no formulário)\n" +
+    "• Envio ao criar ou atualizar quando status for Planejado/Requerido e houver mudança relevante (datas, carga, status etc.)\n" +
+    "• Enfileiramento pós-commit (transaction.on_commit) para evitar corrida entre worker e persistência do registro\n\n" +
+
+    "🔹 Relatórios e evidências (auditoria / conformidade)\n" +
+    "• F003 (Mapeamento de Treinamento) por colaborador, com impressão/PDF e referência a documento/revisão quando disponível\n" +
+    "• Levantamento de Necessidades de Treinamento por setor e período (formulário pronto para impressão e assinaturas)\n" +
+    "• Relatório por Departamento: consolida horas (hora-pessoa), treinamentos e participantes com filtros via offcanvas\n" +
+    "• Dashboard de Treinamentos com indicadores e gráficos (status, categoria e horas por mês)\n\n" +
+
+    "Resultado: uma gestão de treinamentos realmente auditável — do planejamento à evidência final — com padronização, automação e leitura gerencial rápida.",
+  evidence: [
+    {
+      kind: "video",
+      src: "/media/rh/treinamentos/treinamentos-fluxo-completo.mp4",
+      title: "Treinamentos (fluxo completo)",
+      caption:
+        "Cadastro, filtros, notificações, relatórios (F003/levantamento) e consolidações por departamento/dashboard.",
+    },
+  ],
+},
+{
+  title: "Lista de Presença — Registro oficial com QR Check-in, impressão (F013) e aprovação",
+  description:
+    "Gerencia listas de presença de treinamentos/cursos/eventos com rastreabilidade completa: cadastro estruturado, participantes vinculados, upload de PDF, impressão padronizada (F013), visualização detalhada, exportação para Excel e confirmação de presença via QR/token com validade — além de workflow de aprovação por permissão.\n\n" +
+
+    "🔹 Cadastro estruturado (com regras e evidências)\n" +
+    "• Tipo de evento (Treinamento/Curso/Divulgação/Conscientização), assunto e descrição (editor rico)\n" +
+    "• Datas (início/fim) e duração (em horas) com validações: fim não pode ser anterior ao início e duração ≥ 0\n" +
+    "• Horário início/fim suportado (campos ocultos na UI, preservando dados quando necessário)\n" +
+    "• Instrutor e flag 'Necessita Avaliação de Eficácia' para controle de follow-up\n" +
+    "• Upload da lista em PDF com governança: apenas PDF, renomeação automática e limite de 5MB\n" +
+    "• Seleção múltipla de participantes (Select2) com orientação e redução de erro operacional\n\n" +
+
+    "🔹 Integração automática com Treinamentos + Avaliações (sem retrabalho)\n" +
+    "• Ao salvar a lista, processa os dados para criar/atualizar o Treinamento correspondente\n" +
+    "• Se 'Finalizado': registra Treinamento como concluído; se 'Em Andamento' e Planejado=Sim: cria/atualiza como planejado\n" +
+    "• Participantes da lista são vinculados ao Treinamento automaticamente\n" +
+    "• Se necessita avaliação: cria/atualiza Avaliação de Treinamento por participante com status 'Aguardando avaliação'\n\n" +
+
+    "🔹 Lista operacional + filtros e KPIs (gestão rápida)\n" +
+    "• Filtros por instrutor, situação, intervalo de datas (aceita datas parciais) e participante\n" +
+    "• Paginação e prefetch de participantes (evita N+1 e melhora performance)\n" +
+    "• Indicadores: total, finalizadas, em andamento e horas-pessoa (duração × participantes)\n\n" +
+
+    "🔹 Visualização, impressão e padronização documental (F013 Rev.03)\n" +
+    "• Visualização detalhada do registro com badges de situação e download do PDF anexado\n" +
+    "• Impressão padronizada (F013 Rev.03) com layout pronto para auditoria: tipo, datas, assunto, descrição, duração e instrutor\n" +
+    "• Tabela de participantes (nome/setor) com campo de visto e seção do Gestor da Qualidade para marcações\n\n" +
+
+    "🔹 Check-in por QR Code (token por participante + validade)\n" +
+    "• Opção de notificar participantes por e-mail com link individual de confirmação\n" +
+    "• Token por participante com validade (ex.: 1 dia), evitando reutilização indevida\n" +
+    "• Tela de confirmação OK e tela de link expirado (UX clara e rastreável)\n" +
+    "• Em edição: se ativar QR depois, envia para todos; se já estava ativo, envia somente para novos participantes\n\n" +
+
+    "🔹 Workflow de aprovação (governança)\n" +
+    "• Permissão específica: 'approve_listapresenca' controla quem pode aprovar\n" +
+    "• Registro de aprovado_por e data_aprovacao visível na visualização detalhada\n\n" +
+
+    "🔹 Exportação para Excel (evidência e auditoria)\n" +
+    "• Exporta listas com campos essenciais (datas, duração, instrutor, situação, participantes) e filtros por instrutor/período\n\n" +
+
+    "Resultado: uma evidência formal e auditável de presença, com automação para não duplicar trabalho no módulo de Treinamentos e governança (aprovação + QR check-in com validade).",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/lista-presenca/impressao-f013.png",
+      title: "Lista de Presença (F013) — impressão e auditoria",
+      caption:
+        "Impressão padronizada com participantes e campos de visto, pronta para auditoria e assinaturas.",
+    },
+  ],
+},
 
 
 
