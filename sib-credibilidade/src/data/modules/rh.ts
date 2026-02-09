@@ -733,6 +733,57 @@ export const rhModule: Module = {
   ],
 },
 
+{
+  title: "Banco de Horas — Controle integrado de jornada, ocorrências e auditoria",
+  description:
+    "Centraliza o controle de banco de horas dos colaboradores, integrando lançamentos manuais, ocorrências da portaria (atrasos e saídas antecipadas) e cálculo automático de adicionais, garantindo rastreabilidade, integridade e suporte a auditorias trabalhistas.\n\n" +
+
+    "🔹 Lançamento e cálculo de banco de horas\n" +
+    "• Registro individual por colaborador e data, aceitando horas positivas ou negativas no formato padrão ±HH:MM\n" +
+    "• Conversão automática das horas informadas para cálculo interno confiável\n" +
+    "• Aplicação automática de hora extra com adicional de 50% ou 100%, com recálculo imediato do saldo lançado\n\n" +
+
+    "🔹 Integração direta com Portaria (Atrasos e Saídas)\n" +
+    "• Listagem automática de ocorrências de atraso e saída antecipada ainda não utilizadas\n" +
+    "• Vinculação direta da ocorrência ao banco de horas, com preenchimento automático de data, horas negativas e observação\n" +
+    "• Bloqueio de reutilização de ocorrências já vinculadas, garantindo integridade e rastreabilidade\n\n" +
+
+    "🔹 Observações e consistência entre módulos\n" +
+    "• Sincronização automática das observações entre o registro de banco de horas e a ocorrência vinculada\n" +
+    "• Padronização das justificativas aplicadas (ex.: atraso justificado, saída antecipada justificada)\n\n" +
+
+    "🔹 Gestão, edição e histórico\n" +
+    "• Edição controlada de registros com recálculo automático das horas\n" +
+    "• Liberação automática de ocorrências anteriores quando o vínculo é alterado\n" +
+    "• Preservação do histórico completo de lançamentos para auditoria\n\n" +
+
+    "🔹 Consulta, filtros e relatórios\n" +
+    "• Listagem com filtros por colaborador e período\n" +
+    "• Paginação automática e totalização de horas acumuladas\n" +
+    "• Base consolidada para relatórios de banco de horas e apoio à folha de pagamento\n\n" +
+
+    "🔹 Governança e controle de acesso\n" +
+    "• Controle de permissões para visualizar, cadastrar, editar e excluir registros\n" +
+    "• Suporte à segregação de funções e governança operacional do RH\n\n" +
+
+    "Observação: o módulo de Banco de Horas atua de forma integrada aos módulos de Portaria, Funcionários e Relatórios, eliminando controles paralelos e fortalecendo a confiabilidade dos dados de jornada.",
+  evidence: [
+    {
+      kind: "image",
+      src: "/media/rh/banco-horas/banco-horas-form.png",
+      title: "Cadastro de Banco de Horas",
+      caption:
+        "Tela de lançamento do banco de horas com cálculo automático, adicionais de hora extra e integração com ocorrências da portaria.",
+    },
+    {
+      kind: "image",
+      src: "/media/rh/banco-horas/ocorrencias-integradas.png",
+      title: "Integração com Atrasos e Saídas",
+      caption:
+        "Vinculação direta de ocorrências de atraso ou saída antecipada, garantindo rastreabilidade e bloqueio de reutilização.",
+    },
+  ],
+},
 
     
   ],
