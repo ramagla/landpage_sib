@@ -64,8 +64,8 @@ export const rhModule: Module = {
     "Todas as informações são validadas por regras de integridade, mantêm histórico rastreável de alterações e servem como evidência objetiva para auditorias, análises gerenciais e melhoria contínua do sistema.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/cadastro-funcionarios.png",
+      kind: "video",
+      src: "/media/rh/cadastro-funcionarios.mp4",
       title: "Cadastro de Funcionários",
       caption: "Cadastro completo do colaborador, gestão de status, cargos, documentos e integrações com o RH.",
     },
@@ -126,8 +126,8 @@ export const rhModule: Module = {
     "Todo o processo de integração permanece armazenado de forma rastreável, servindo como evidência objetiva para auditorias, análises gerenciais e melhoria contínua do sistema.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/onboarding.png",
+      kind: "video",
+      src: "/media/rh/onboarding.mp4",
       title: "Onboarding de Funcionários",
       caption: "Checklist de integração do RH e do departamento, controle de treinamentos, documentos e assinaturas.",
     },
@@ -172,19 +172,8 @@ export const rhModule: Module = {
       src: "/media/rh/comunicados-demo.mp4",
       title: "Comunicados Internos em operação",
       caption: "Cadastro, filtros, workflow, aprovação/reprovação, impressão e exportação PNG.",
-    },
-    {
-      kind: "image",
-      src: "/media/rh/comunicados-lista.png",
-      title: "Lista de Comunicados",
-      caption: "Filtros por tipo/departamento/status, indicadores e ações do workflow.",
-    },
-    {
-      kind: "image",
-      src: "/media/rh/comunicado-aprovacao.png",
-      title: "Confirmação de Aprovação",
-      caption: "Prévia oficial do comunicado e ações de aprovar/reprovar com registro e notificação.",
-    },
+    }, 
+    
   ],
 },
 
@@ -244,29 +233,12 @@ export const rhModule: Module = {
     "Todo o fluxo mantém rastreabilidade, validações e evidências padronizadas, apoiando gestão de competências, governança documental e conformidade com auditorias internas e externas.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/cargos-lista.png",
+      kind: "video",
+      src: "/media/rh/cargos-lista.mp4",
       title: "Lista de Cargos (DC)",
       caption: "Filtros por status, assinaturas e indicadores de controle.",
     },
-    {
-      kind: "image",
-      src: "/media/rh/cargo-form.png",
-      title: "Cadastro/Edição de Cargo",
-      caption: "Cadastro com requisitos, treinamentos, nível hierárquico e governança.",
-    },
-    {
-      kind: "image",
-      src: "/media/rh/cargo-assinatura.png",
-      title: "Assinatura Eletrônica do Cargo",
-      caption: "Assinatura por papel (Elaborador/Aprovador) com QR Code e hash de validação.",
-    },
-    {
-      kind: "image",
-      src: "/media/rh/cargos-organograma.png",
-      title: "Organograma de Cargos",
-      caption: "Organograma por níveis com exportação em PNG A4 (paisagem).",
-    },
+    
   ],
 },
 
@@ -307,7 +279,7 @@ export const rhModule: Module = {
   evidence: [
     {
       kind: "video",
-      src: "/media/rh/treinamentos/treinamentos-fluxo-completo.mp4",
+      src: "/media/rh/treinamentos-fluxo-completo.mp4",
       title: "Treinamentos (fluxo completo)",
       caption:
         "Cadastro, filtros, notificações, relatórios (F003/levantamento) e consolidações por departamento/dashboard.",
@@ -359,8 +331,8 @@ export const rhModule: Module = {
     "Resultado: uma evidência formal e auditável de presença, com automação para não duplicar trabalho no módulo de Treinamentos e governança (aprovação + QR check-in com validade).",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/lista-presenca/impressao-f013.png",
+      kind: "video",
+      src: "/media/rh/impressao-f013.mp4",
       title: "Lista de Presença (F013) — impressão e auditoria",
       caption:
         "Impressão padronizada com participantes e campos de visto, pronta para auditoria e assinaturas.",
@@ -410,20 +382,13 @@ export const rhModule: Module = {
     "Resultado: uma trilha objetiva de eficácia por treinamento, com controle de prazo e documentação pronta para auditoria interna/externa.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/treinamentos/avaliacoes-lista.png",
+      kind: "video",
+      src: "/media/rh/avaliacoes-lista.mp4",
       title: "Lista de Avaliações (KPIs + prazo + eficácia)",
       caption:
         "KPIs de efetividade, filtros, badges de prazo e ações (editar/imprimir/anexo).",
     },
-    {
-      kind: "image",
-      src: "/media/rh/treinamentos/avaliacao-impressao-f148.png",
-      title: "Impressão (F148 Rev.01)",
-      caption:
-        "Relatório com respostas destacadas, melhorias e assinaturas, pronto para auditoria.",
-    },
-  ],
+      ],
 },
 {
   title: "Avaliação de Desempenho Anual — F176B, classificação automática e impressão",
@@ -481,19 +446,13 @@ export const rhModule: Module = {
     "• Ideal para coletar avaliações em sequência com menor fricção operacional",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/avaliacao-anual/lista-kpis.png",
+      kind: "video",
+      src: "/media/rh/lista-kpis.mp4",
       title: "Lista de avaliações anuais (KPIs e filtros)",
       caption:
         "KPIs por classificação, filtros via offcanvas e ações por permissão (visualizar/editar/imprimir).",
     },
-    {
-      kind: "image",
-      src: "/media/rh/avaliacao-anual/impressao-f176b.png",
-      title: "Impressão (F176B Rev.07)",
-      caption:
-        "Relatório com questionário marcado, avaliações globais e campos de assinatura.",
-    },
+   
   ],
 },
 
@@ -541,19 +500,13 @@ export const rhModule: Module = {
     "Resultado: avaliação objetiva do período de experiência com orientação automatizada e documentação pronta para auditoria e decisão (efetivar, treinar ou desligar).",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/avaliacao-experiencia/lista.png",
+      kind: "video",
+      src: "/media/rh/lista.mp4",
       title: "Lista de Avaliações de Experiência",
       caption:
         "KPIs (Efetivar/Treinamento/Desligar), filtros offcanvas e ações por permissão (visualizar/editar/imprimir).",
     },
-    {
-      kind: "image",
-      src: "/media/rh/avaliacao-experiencia/impressao-f176a.png",
-      title: "Impressão (F176A Rev.05)",
-      caption:
-        "Relatório com descrições completas por critério, observações e campos de assinatura.",
-    },
+    
   ],
 },
 {
@@ -589,17 +542,12 @@ export const rhModule: Module = {
     "Resultado prático: um fluxo de Job Rotation que sai do “controle em planilha” e vira processo governado — com evidência, assinatura e documento final pronto para auditoria.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/jobrotation/lista-jobrotation.png",
+      kind: "video",
+      src: "/media/rh/lista-jobrotation.mp4",
       title: "Job Rotation — Lista e gestão",
       caption: "Listagem com filtros/paginação e acesso às ações (visualizar, editar, imprimir/PDF).",
     },
-    {
-      kind: "image",
-      src: "/media/rh/jobrotation/avaliacoes-abas.png",
-      title: "Job Rotation — Avaliações em abas + assinatura",
-      caption: "Avaliação do Colaborador e do Gestor em abas separadas, com assinatura eletrônica e QR de verificação.",
-    },
+   
   ],
 },
 
@@ -641,8 +589,8 @@ export const rhModule: Module = {
     "Resultado: visão clara da capacidade operacional da empresa, redução de riscos por ausência de pessoal-chave e base objetiva para decisões de treinamento, promoção e rotação.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/matriz-polivalencia/matriz.png",
+      kind: "video",
+      src: "/media/rh/matriz.mp4",
       title: "Matriz de Polivalência",
       caption:
         "Matriz por função/processo com níveis de domínio, cores e leitura rápida para gestão e auditoria.",
@@ -683,8 +631,15 @@ export const rhModule: Module = {
     "Resultado: o RH deixa de ser apenas operacional e passa a atuar de forma analítica, com dados confiáveis, rastreáveis e acionáveis para gestão e conformidade.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/relatorios-indicadores/dashboard.png",
+      kind: "video",
+      src: "/media/rh/relatorios.mp4",
+      title: "Relatórios e Indicadores de RH",
+      caption:
+        "Painel consolidado com relatorios, filtros e relatórios prontos para gestão e auditoria.",
+    },
+     {
+      kind: "video",
+      src: "/media/rh/indicadores.mp4",
       title: "Relatórios e Indicadores de RH",
       caption:
         "Painel consolidado com KPIs, filtros e relatórios prontos para gestão e auditoria.",
@@ -724,8 +679,8 @@ export const rhModule: Module = {
     "Observação: a Lista Mestra MRQ001 também existe no módulo de Documentos como matriz consolidada do controle documental.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/formularios/rodapes-formularios.png",
+      kind: "video",
+      src: "/media/rh/rodapes-formularios.mp4",
       title: "Rodapés com código e revisão",
       caption:
         "Identificação padronizada do formulário (ex.: F013 Rev.03, F148 Rev.01, F176A Rev.05, F176B Rev.07...).",
@@ -769,19 +724,13 @@ export const rhModule: Module = {
     "Observação: o módulo de Banco de Horas atua de forma integrada aos módulos de Portaria, Funcionários e Relatórios, eliminando controles paralelos e fortalecendo a confiabilidade dos dados de jornada.",
   evidence: [
     {
-      kind: "image",
-      src: "/media/rh/banco-horas/banco-horas-form.png",
+      kind: "video",
+      src: "/media/rh/banco-horas.mp4",
       title: "Cadastro de Banco de Horas",
       caption:
         "Tela de lançamento do banco de horas com cálculo automático, adicionais de hora extra e integração com ocorrências da portaria.",
     },
-    {
-      kind: "image",
-      src: "/media/rh/banco-horas/ocorrencias-integradas.png",
-      title: "Integração com Atrasos e Saídas",
-      caption:
-        "Vinculação direta de ocorrências de atraso ou saída antecipada, garantindo rastreabilidade e bloqueio de reutilização.",
-    },
+    
   ],
 },
 
