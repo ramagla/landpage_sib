@@ -146,7 +146,7 @@ export const metrologiaModule: Module = {
   evidence: [
     {
       kind: "video",
-      src: "/media/metrologia/calibracoes/instrumentos-fluxo.mp4",
+      src: "/media/metrologia/instrumentos-fluxo.mp4",
       title: "Calibração de instrumentos (fluxo completo)",
       caption:
         "Cadastro/edição, cálculo automático (L = E + I), status aprovado/reprovado, KPIs da lista e download do certificado.",
@@ -183,7 +183,7 @@ export const metrologiaModule: Module = {
   evidence: [
     {
       kind: "video",
-      src: "/media/metrologia/calibracoes/dispositivos-fluxo.mp4",
+      src: "/media/metrologia/dispositivos-fluxo.mp4",
       title: "Calibração de dispositivos (fluxo completo)",
       caption:
         "Carregamento de cotas, registro de aferições, status consolidado, anexo, filtros/KPIs e rastreabilidade por dispositivo.",

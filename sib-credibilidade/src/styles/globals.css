@@ -435,6 +435,12 @@ hr.sep{
   padding: 0.75rem;
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+
+  color: var(--text);
+}
+
+.evidenceItem .mediaTitle{
+  color: var(--text);
 }
 
 .evidenceItem:hover{
