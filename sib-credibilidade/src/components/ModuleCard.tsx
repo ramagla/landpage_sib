@@ -85,7 +85,6 @@ function renderFeatureDescription(description: string) {
   );
 }
 
-
 export default function ModuleCard({ module }: { module: Module }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -93,12 +92,23 @@ export default function ModuleCard({ module }: { module: Module }) {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selected, setSelected] = useState<Evidence | null>(null);
 
+  // “Ver mais detalhes” por funcionalidade (evita toggle via DOM)
+  const [expandedFeatureKeys, setExpandedFeatureKeys] = useState<Set<string>>(new Set());
+
   const evidences = useMemo(() => collectEvidences(module.features), [module.features]);
 
   const trackRef = useRef<HTMLDivElement | null>(null);
-
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
+
+  const moduleSlug = useMemo(() => {
+    return (module.id || module.name || "modulo")
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+  }, [module.id, module.name]);
+
+  const detailsRegionId = `module-${moduleSlug}-details`;
 
   const updateArrows = useCallback(() => {
     const el = trackRef.current;
@@ -112,6 +122,12 @@ export default function ModuleCard({ module }: { module: Module }) {
   useEffect(() => {
     updateArrows();
   }, [evidences.length, updateArrows]);
+
+  useEffect(() => {
+    const onResize = () => updateArrows();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [updateArrows]);
 
   // fecha viewer com ESC
   useEffect(() => {
@@ -146,6 +162,22 @@ export default function ModuleCard({ module }: { module: Module }) {
     setSelected(null);
   };
 
+  const featureKey = (f: Feature) => `${moduleSlug}:${f.title}`;
+
+  const isFeatureExpanded = (f: Feature) => expandedFeatureKeys.has(featureKey(f));
+
+  const toggleFeatureExpanded = (f: Feature) => {
+    const key = featureKey(f);
+    setExpandedFeatureKeys((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
+
+  const mediaOverlayIcon = (ev: Evidence) => (ev.kind === "video" ? "▶" : "⤢");
+
   return (
     <div className="card moduleCard">
       <div className="moduleCardHeader">
@@ -156,7 +188,7 @@ export default function ModuleCard({ module }: { module: Module }) {
             {module.icon} {module.name}
           </h2>
 
-          <p className="p" style={{ marginTop: "0.75rem" }}>
+          <p className="p readMax" style={{ marginTop: "0.75rem" }}>
             {module.summary}
           </p>
         </div>
@@ -167,6 +199,7 @@ export default function ModuleCard({ module }: { module: Module }) {
             className="moduleCta"
             onClick={() => setExpanded((v) => !v)}
             aria-expanded={expanded}
+            aria-controls={detailsRegionId}
           >
             <span className="moduleCtaText">{expanded ? "Ocultar" : "Funcionalidades"}</span>
             <span className="moduleCtaMeta">{module.features.length}</span>
@@ -181,7 +214,6 @@ export default function ModuleCard({ module }: { module: Module }) {
       {evidences.length ? (
         <div className="moduleEvidences">
           <div className="evidenceWrapper">
-            {/* Setas só fazem sentido com mais itens */}
             {evidences.length > 3 ? (
               <button
                 type="button"
@@ -208,13 +240,18 @@ export default function ModuleCard({ module }: { module: Module }) {
                   className="evidenceItem"
                   onClick={() => openViewer(ev)}
                   title="Clique para ampliar"
+                  aria-label={`Abrir evidência: ${ev.title}`}
                 >
-                  <div className="media mediaFrame16x9">
+                  <div className="media mediaFrame16x9" style={{ position: "relative" }}>
                     {ev.kind === "video" ? (
-                      <video src={ev.src} preload="metadata" muted />
+                      <video src={ev.src} preload="metadata" muted playsInline />
                     ) : (
                       <img src={ev.src} alt={ev.title} loading="lazy" />
                     )}
+
+                    <div className="overviewMediaOverlay" aria-hidden="true">
+                      <span className="overviewPlayIcon">{mediaOverlayIcon(ev)}</span>
+                    </div>
                   </div>
 
                   <div className="evidenceMeta">
@@ -241,88 +278,109 @@ export default function ModuleCard({ module }: { module: Module }) {
         </div>
       ) : null}
 
-      {/* Detalhes (somente texto) */}
+      {/* Detalhes (funcionalidades) */}
       {expanded ? (
-        <div className="moduleDetails">
+        <div className="moduleDetails" id={detailsRegionId}>
           <h3 style={{ margin: "0 0 0.5rem" }}>Funcionalidades</h3>
 
-          <div className="featureAccordion">
-            {module.features.map((f) => (
-              <details key={f.title} className="featureDisclosure">
-                <summary className="featureSummary">
-                  <span>{f.title}</span>
-                </summary>
-
-               <div className="featureBody">
-  <div className="featureTwoCol" style={{ marginTop: "0.5rem" }}>
-    <div className="featureLeft">
-     <div className="featureRichText">
-  <div className="featureIntro">
-    <span className="featureIntroIcon">📌</span>
-    <span className="featureIntroText">
-      Resumo: pontos principais desta funcionalidade (expanda para ver o detalhamento completo).
-    </span>
-  </div>
-
-  <div className="featureClamp">
-    {renderFeatureDescription(f.description)}
-  </div>
-
-  <button
-    type="button"
-    className="featureMore"
-    onClick={(e) => {
-      const root = (e.currentTarget.closest(".featureBody") as HTMLElement) ?? null;
-      if (!root) return;
-      root.classList.toggle("featureBodyExpanded");
-    }}
-  >
-    Ver mais detalhes →
-  </button>
-</div>
-
-    </div>
-
-    {(f.evidence?.length ?? 0) > 0 ? (
-      <aside className="featureRight" aria-label="Evidências da funcionalidade">
-        <div className="featureSideTitle">
-  🧾 Evidências
-  <span className="featureSideCount">{f.evidence!.length}</span>
-</div>
-
-
-        <div className="featureSideGrid">
-          {f.evidence!.map((ev) => (
-            <button
-              key={`${ev.kind}-${ev.src}`}
-              type="button"
-              className="featureSideItem"
-              onClick={() => openViewer(ev)}
-              title="Clique para ampliar"
-            >
-              <div className="media mediaFrame16x9">
-                {ev.kind === "video" ? (
-                  <video src={ev.src} preload="metadata" muted />
-                ) : (
-                  <img src={ev.src} alt={ev.title} loading="lazy" />
-                )}
-              </div>
-
-              <div className="featureSideMeta">
-                <div className="mediaTitle">{ev.title}</div>
-                {ev.caption ? <div className="small">{ev.caption}</div> : null}
-              </div>
-            </button>
-          ))}
-        </div>
-      </aside>
-    ) : null}
-  </div>
-</div>
-
-
-              </details>
+          <div className="badges" style={{ margin: "0.75rem 0 0.5rem" }}>
+            <span className="badge">Destaques:</span>
+            {module.features.slice(0, 3).map((f) => (
+              <span key={`hl-${f.title}`} className="badge">
+                ⭐ {f.title}
+              </span>
             ))}
+          </div>
+
+         <div className="featureAccordion">
+            {module.features.map((f) => {
+              const expandedText = isFeatureExpanded(f);
+              const hasEvidence = (f.evidence?.length ?? 0) > 0;
+              const featurePanelId = `feature-${moduleSlug}-${f.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^a-z0-9-]/g, "")}`;
+
+              return (
+                <details key={f.title} className="featureDisclosure">
+                  <summary className="featureSummary" aria-controls={featurePanelId}>
+                    <span>{f.title}</span>
+                  </summary>
+
+                  <div className="featureBody" id={featurePanelId}>
+                    <div className="featureTwoCol" style={{ marginTop: "0.5rem" }}>
+                      <div className="featureLeft">
+                        <div className="featureRichText">
+                          <div className="featureIntro">
+                            <span className="featureIntroIcon">📌</span>
+                            <span className="featureIntroText">
+                              Visão rápida: entenda o objetivo e o impacto desta funcionalidade. Use “Ver mais detalhes”
+                              para o passo a passo completo.
+                            </span>
+                          </div>
+
+                          <div
+                            className="featureClamp"
+                            style={
+                              expandedText
+                                ? { maxHeight: "none", overflow: "visible" }
+                                : undefined
+                            }
+                          >
+                            {renderFeatureDescription(f.description)}
+                          </div>
+
+                          <button
+                            type="button"
+                            className="featureMore"
+                            onClick={() => toggleFeatureExpanded(f)}
+                            aria-expanded={expandedText}
+                          >
+                            {expandedText ? "Ver menos detalhes ←" : "Ver mais detalhes →"}
+                          </button>
+                        </div>
+                      </div>
+
+                      {hasEvidence ? (
+                        <aside className="featureRight" aria-label="Evidências da funcionalidade">
+                          <div className="featureSideTitle">🧾 Evidências</div>
+
+                          <div className="featureSideGrid">
+                            {f.evidence!.map((ev) => (
+                              <button
+                                key={`${ev.kind}-${ev.src}`}
+                                type="button"
+                                className="featureSideItem"
+                                onClick={() => openViewer(ev)}
+                                title="Clique para ampliar"
+                                aria-label={`Abrir evidência: ${ev.title}`}
+                              >
+                                <div className="media mediaFrame16x9" style={{ position: "relative" }}>
+                                  {ev.kind === "video" ? (
+                                    <video src={ev.src} preload="metadata" muted playsInline />
+                                  ) : (
+                                    <img src={ev.src} alt={ev.title} loading="lazy" />
+                                  )}
+
+                                  <div className="overviewMediaOverlay" aria-hidden="true">
+                                    <span className="overviewPlayIcon">{mediaOverlayIcon(ev)}</span>
+                                  </div>
+                                </div>
+
+                                <div className="featureSideMeta">
+                                  <div className="mediaTitle">{ev.title}</div>
+                                  {ev.caption ? <div className="small">{ev.caption}</div> : null}
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </aside>
+                      ) : null}
+                    </div>
+                  </div>
+                </details>
+              );
+            })}
           </div>
         </div>
       ) : null}

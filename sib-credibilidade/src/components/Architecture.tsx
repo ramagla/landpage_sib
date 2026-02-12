@@ -6,8 +6,18 @@ export default function Architecture() {
       id="arquitetura"
       kicker="Arquitetura"
       title="Arquitetura e Princípios"
-      subtitle="Arquitetura pensada para auditoria e rastreabilidade — com decisões explicáveis."
+      subtitle="Decisões técnicas orientadas a auditoria, rastreabilidade e governança — com resultados explicáveis e verificáveis."
     >
+      {/* Guia rápido (AIDA / escaneabilidade) */}
+      <div className="card soft readMax" style={{ marginBottom: "1rem" }}>
+        <div className="kicker">Como ler esta seção</div>
+        <ul className="leadList">
+          <li>1) Entenda como os módulos se separam por domínio.</li>
+          <li>2) Veja onde ficam evidências, histórico e ciclo de vida.</li>
+          <li>3) Confira governança (LGPD/IATF) e automações operacionais.</li>
+        </ul>
+      </div>
+
       <div className="grid grid-2">
         <div className="card">
           <div className="cardTitleRow">
@@ -18,9 +28,9 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Monólito Django organizado por domínios. Cada módulo é um contexto de negócio
-            com evidências e regras próprias.
+          <p className="p readMax">
+            Organização por domínios reduz ambiguidade e torna regras e responsabilidades
+            <strong style={{ color: "var(--text)" }}> fáceis de auditar</strong>.
           </p>
 
           <ul className="archList">
@@ -30,6 +40,10 @@ export default function Architecture() {
             <li>Metrologia</li>
             <li>Recursos Humanos</li>
           </ul>
+
+          <p className="small readMax" style={{ marginTop: "0.65rem" }}>
+            Base: monólito Django por contexto de negócio, com regras e evidências por módulo.
+          </p>
         </div>
 
         <div className="card">
@@ -42,8 +56,10 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Plataforma estável e controlável para ambiente industrial, com foco em previsibilidade.
+          <p className="p readMax">
+            Stack previsível e controlável para ambiente industrial, priorizando
+            <strong style={{ color: "var(--text)" }}> estabilidade</strong> e
+            <strong style={{ color: "var(--text)" }}> governança</strong>.
           </p>
 
           <ul className="archList">
@@ -63,8 +79,10 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Cada registro tem ciclo de vida, trilha de decisão e vínculo direto com evidências.
+          <p className="p readMax">
+            Cada registro mantém trilha temporal e vínculo direto com evidências, facilitando
+            <strong style={{ color: "var(--text)" }}> verificação</strong> e
+            <strong style={{ color: "var(--text)" }}> auditoria</strong>.
           </p>
 
           <ul className="archList">
@@ -84,8 +102,9 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Estrutura desenhada para requisitos normativos e auditoria, com proteção de dados por padrão.
+          <p className="p readMax">
+            Controles de acesso e rastreio de alterações fortalecem conformidade e reduzem risco
+            em processos críticos.
           </p>
 
           <ul className="archList">
@@ -106,16 +125,21 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Automação aplicada onde reduz risco operacional e melhora a tomada de decisão.
+          <p className="p readMax">
+            Automação aplicada onde reduz risco operacional e aumenta previsibilidade do processo,
+            sem “mágica” — tudo rastreável.
           </p>
 
           <ul className="archList">
-            <li>Alertas, e-mails e notificações</li>
+            <li>Alertas, envios de e-mail e notificações</li>
             <li>Tarefas recorrentes e verificações periódicas</li>
             <li>Integração com ERP de produção (Carga Máquina)</li>
             <li>Consulta a índices financeiros e calendários oficiais</li>
           </ul>
+
+          <p className="small readMax" style={{ marginTop: "0.65rem" }}>
+            Onde faz sentido, o sistema antecipa falhas com alertas e reduz retrabalho com rotinas programadas.
+          </p>
         </div>
 
         <div className="card">
@@ -127,8 +151,9 @@ export default function Architecture() {
             </div>
           </div>
 
-          <p className="p">
-            Decisões orientadas a rastreabilidade e auditabilidade, sem complexidade desnecessária.
+          <p className="p readMax">
+            Decisões orientadas a auditabilidade e rastreabilidade, mantendo simplicidade onde ela
+            preserva manutenção e evolução.
           </p>
 
           <ul className="archList">

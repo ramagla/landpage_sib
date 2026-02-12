@@ -8,6 +8,16 @@ export default function StackAndPrinciples() {
       title="Stack e Padrões de Construção"
       subtitle="Aqui está o porquê das escolhas e o padrão de engenharia — não a organização do sistema."
     >
+      {/* Guia rápido (escaneabilidade / AIDA) */}
+      <div className="card soft readMax" style={{ marginBottom: "1rem" }}>
+        <div className="kicker">Como interpretar</div>
+        <ul className="leadList">
+          <li>1) Critérios de decisão: por que essa stack funciona no chão de fábrica.</li>
+          <li>2) Padrões de entrega: como garantir previsibilidade e auditoria.</li>
+          <li>3) Evidência: como a prova entra no fluxo sem expor dados (LGPD).</li>
+        </ul>
+      </div>
+
       <div className="grid grid-3">
         <div className="card">
           <div className="cardTitleRow">
@@ -19,8 +29,9 @@ export default function StackAndPrinciples() {
             <span className="badge">auditoria</span>
           </div>
 
-          <p className="p">
-            Stack escolhida para reduzir risco operacional e manter evolução estável em ambiente industrial.
+          <p className="p readMax">
+            Stack escolhida para reduzir risco operacional e manter evolução estável em ambiente industrial,
+            sem perder rastreabilidade.
           </p>
 
           <ul className="archList">
@@ -41,9 +52,9 @@ export default function StackAndPrinciples() {
             <span className="badge">admin</span>
           </div>
 
-          <p className="p">
-            Django acelera regras e fluxos com consistência e maturidade. PostgreSQL entrega robustez
-            transacional para registros críticos.
+          <p className="p readMax">
+            Django acelera regras e fluxos com maturidade e consistência. PostgreSQL entrega robustez
+            transacional para registros críticos e trilha confiável.
           </p>
 
           <div className="badges" style={{ marginTop: "0.85rem" }}>
@@ -63,14 +74,15 @@ export default function StackAndPrinciples() {
             <span className="badge">Redis</span>
           </div>
 
-          <p className="p">
-            Rotinas e alertas são processados fora do request para manter o sistema responsivo.
+          <p className="p readMax">
+            Rotinas, alertas e processamentos são executados fora do request para manter a aplicação responsiva
+            e previsível sob carga.
           </p>
 
           <ul className="archList">
-            <li>Alertas e notificações</li>
-            <li>Rotinas recorrentes</li>
-            <li>Processamentos fora do request</li>
+            <li>Alertas, envios de e-mail e notificações</li>
+            <li>Tarefas recorrentes e verificações periódicas</li>
+            <li>Processamentos demorados fora do request</li>
           </ul>
         </div>
 
@@ -84,8 +96,9 @@ export default function StackAndPrinciples() {
             <span className="badge">branches</span>
           </div>
 
-          <p className="p">
-            Versionamento e branches padronizados para leitura clara do que mudou e previsibilidade de deploy.
+          <p className="p readMax">
+            Versionamento e branches padronizados para leitura clara do que mudou e previsibilidade de deploy,
+            com histórico rastreável.
           </p>
 
           <div className="badges" style={{ marginTop: "0.85rem" }}>
@@ -107,8 +120,9 @@ export default function StackAndPrinciples() {
             <span className="badge">segurança</span>
           </div>
 
-          <p className="p">
-            Qualidade tratada como rotina de engenharia, não como etapa final.
+          <p className="p readMax">
+            Qualidade tratada como rotina de engenharia: padronização, consistência e redução de risco
+            antes de chegar em produção.
           </p>
 
           <div className="badges" style={{ marginTop: "0.85rem" }}>
@@ -131,8 +145,9 @@ export default function StackAndPrinciples() {
             <span className="badge">PDF</span>
           </div>
 
-          <p className="p">
-            Evidência não é “anexo”: é parte do padrão de entrega, com contexto e proteção de dados.
+          <p className="p readMax">
+            Evidência não é “anexo”: é parte do padrão de entrega. O objetivo é demonstrar fluxo e controle,
+            preservando dados e contexto.
           </p>
 
           <ul className="archList">
