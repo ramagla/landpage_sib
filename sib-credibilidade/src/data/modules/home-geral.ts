@@ -94,8 +94,9 @@ export const homeGeralModule: Module = {
     "Resultado: comunicação interna mais rápida, menos retrabalho e dados mais completos (e-mail/foto) por evidência objetiva.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/home-geral/ramais-lista.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHebuT60/4DtmpX71kn0KVP8Tk483Wg/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHebuT60/4DtmpX71kn0KVP8Tk483Wg/watch",
       title: "Lista de Ramais — busca, filtros, KPIs e ações",
       caption:
         "Busca em tempo real com filtros (setor/cargo/e-mail/foto), KPIs de completude e ações: copiar ramal, vCard, e-mail e recado.",
@@ -142,12 +143,14 @@ export const homeGeralModule: Module = {
     "Resultado: evidência forte para auditorias (o documento existe, é revisado, é comunicado e tem leitura registrada), reduzindo risco e aumentando maturidade do SGQ.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/home-geral/lista-documentos.mp4",
-      title: "Lista de Documentos — filtros, indicadores e tabela escaneável",
-      caption:
-        "Offcanvas de filtros (Select2), KPIs e tabela com ícones para leitura rápida, orientada a SGQ/IATF.",
-    },
+  kind: "embed",
+  src: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch?embed",
+  canvasUrl: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch",
+  title: "Lista de Documentos — demonstração (Canva)",
+  caption:
+    "Demonstração em vídeo do fluxo da Lista de Documentos: filtros, KPIs e tabela escaneável.",
+},
+
   ],
 },
 
@@ -185,8 +188,9 @@ export const homeGeralModule: Module = {
     "Resultado: transparência para o colaborador (acesso ao próprio holerite), sem comprometer LGPD — com importação eficiente para quem administra.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/home-geral/recibos-pagamento.mp4",
+      kind: "embed",
+     src: "https://www.canva.com/design/DAHBHeg6Om8/YjIJbrDuEJ-i4ipAFnh-YQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHeg6Om8/YjIJbrDuEJ-i4ipAFnh-YQ/watch",
       title: "Recibos de Pagamento",
       caption:
         "Indicadores e tabela com valores mascarados, filtros offcanvas, modal de senha e visualização protegida do PDF.",

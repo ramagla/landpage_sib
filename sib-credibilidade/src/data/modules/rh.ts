@@ -14,8 +14,9 @@ export const rhModule: Module = {
     "Apresenta uma visão consolidada, analítica e operacional dos principais indicadores de Recursos Humanos, centralizando informações críticas para gestão, planejamento e conformidade do SGQ. O dashboard reúne, em tempo real, dados estruturados provenientes do cadastro de colaboradores, avaliações, treinamentos, comunicados e eventos institucionais, permitindo acompanhamento contínuo do quadro funcional e suporte objetivo a auditorias conforme a IATF 16949.\n\nPrincipais funcionalidades do dashboard:\n\n• Indicadores operacionais imediatos, incluindo total de colaboradores ativos, quantidade de avaliações pendentes, treinamentos agendados e classificação consolidada de desempenho (Ótimo, Bom, Regular e Ruim).\n\n• Listagem dinâmica de colaboradores com avaliações de desempenho abaixo do esperado, permitindo priorização de feedback, planos de desenvolvimento e ações corretivas.\n\n• Visualização de aniversariantes do mês, com base no cadastro oficial de RH, apoiando ações institucionais e comunicação interna.\n\n• Exibição dos comunicados internos mais recentes, com acesso direto ao conteúdo completo e integração ao fluxo de leitura controlada.\n\n• Painel analítico avançado com gráficos interativos de distribuição por faixa etária, escolaridade, gênero, ano de contratação, turnover e tipos de função.\n\n• Comparativo percentual entre funções administrativas e operacionais, com faixas de referência para análise de equilíbrio organizacional.\n\n• Visualização institucional da CIPA e da Brigada de Incêndio, com suporte à impressão oficial.\n\n• Integração com calendário corporativo, incluindo eventos, feriados e exportação ICS.\n\n• Acesso rápido a modais de detalhamento, como avaliações pendentes e treinamentos agendados.\n\nTodo o conteúdo apresentado é derivado de registros rastreáveis do sistema, respeitando perfis de acesso, LGPD e requisitos de auditoria.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/dashboard-rh.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHf-mPuA/HoYJzqdx8suxlL4ONOjgVA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHf-mPuA/HoYJzqdx8suxlL4ONOjgVA/watch",
       title: "Dashboard de RH em operação",
       caption:
         "Visão geral dos indicadores, painéis analíticos, CIPA, Brigada e acessos rápidos do módulo de Recursos Humanos.",
@@ -64,9 +65,10 @@ export const rhModule: Module = {
     "Todas as informações são validadas por regras de integridade, mantêm histórico rastreável de alterações e servem como evidência objetiva para auditorias, análises gerenciais e melhoria contínua do sistema.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/cadastro-funcionarios.mp4",
-      title: "Cadastro de Funcionários",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHVYhg1o/tSgGcQ7Zc7uoYJqpzJnL9A/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHVYhg1o/tSgGcQ7Zc7uoYJqpzJnL9A/watch",
+      title: "Cadastro de Colaboradores",
       caption: "Cadastro completo do colaborador, gestão de status, cargos, documentos e integrações com o RH.",
     },
   ],
@@ -126,8 +128,9 @@ export const rhModule: Module = {
     "Todo o processo de integração permanece armazenado de forma rastreável, servindo como evidência objetiva para auditorias, análises gerenciais e melhoria contínua do sistema.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/onboarding.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHSkfNTc/q8swMjnrt2uqT3av26Dntw/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHSkfNTc/q8swMjnrt2uqT3av26Dntw/watch",
       title: "Onboarding de Funcionários",
       caption: "Checklist de integração do RH e do departamento, controle de treinamentos, documentos e assinaturas.",
     },
@@ -168,8 +171,9 @@ export const rhModule: Module = {
     "Observação: o sistema mantém rastreabilidade do workflow e evidências por lista de assinaturas anexada. Caso você deseje leitura controlada por usuário (quem leu/quando leu), é necessário incluir o registro específico de leitura no backend.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/comunicados-demo.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIIcwJj0/nq_kbx3na5xfgKgjGqCvPA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIIcwJj0/nq_kbx3na5xfgKgjGqCvPA/watch",
       title: "Comunicados Internos em operação",
       caption: "Cadastro, filtros, workflow, aprovação/reprovação, impressão e exportação PNG.",
     }, 
@@ -233,8 +237,9 @@ export const rhModule: Module = {
     "Todo o fluxo mantém rastreabilidade, validações e evidências padronizadas, apoiando gestão de competências, governança documental e conformidade com auditorias internas e externas.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/cargos-lista.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIKh41gU/ADGdOUpIFX9D2CsUuP7Zcw/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIKh41gU/ADGdOUpIFX9D2CsUuP7Zcw/watch",
       title: "Lista de Cargos (DC)",
       caption: "Filtros por status, assinaturas e indicadores de controle.",
     },
@@ -278,8 +283,9 @@ export const rhModule: Module = {
     "Resultado: uma gestão de treinamentos realmente auditável — do planejamento à evidência final — com padronização, automação e leitura gerencial rápida.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/treinamentos-fluxo-completo.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch",
       title: "Treinamentos (fluxo completo)",
       caption:
         "Cadastro, filtros, notificações, relatórios (F003/levantamento) e consolidações por departamento/dashboard.",
@@ -331,8 +337,9 @@ export const rhModule: Module = {
     "Resultado: uma evidência formal e auditável de presença, com automação para não duplicar trabalho no módulo de Treinamentos e governança (aprovação + QR check-in com validade).",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/impressao-f013.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIcsm-E0/fT6Al8p84XhSD3h8sZbYVQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIcsm-E0/fT6Al8p84XhSD3h8sZbYVQ/watch",
       title: "Lista de Presença (F013) — impressão e auditoria",
       caption:
         "Impressão padronizada com participantes e campos de visto, pronta para auditoria e assinaturas.",
@@ -382,8 +389,9 @@ export const rhModule: Module = {
     "Resultado: uma trilha objetiva de eficácia por treinamento, com controle de prazo e documentação pronta para auditoria interna/externa.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/avaliacoes-lista.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIWmlhEE/GWo3UrlPOS0pEuEyBntIDw/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIWmlhEE/GWo3UrlPOS0pEuEyBntIDw/watch",
       title: "Lista de Avaliações (KPIs + prazo + eficácia)",
       caption:
         "KPIs de efetividade, filtros, badges de prazo e ações (editar/imprimir/anexo).",
@@ -446,8 +454,9 @@ export const rhModule: Module = {
     "• Ideal para coletar avaliações em sequência com menor fricção operacional",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/lista-kpis.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIX8JEfQ/oRUxWJLTj3O0V0g0KeN1AA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIX8JEfQ/oRUxWJLTj3O0V0g0KeN1AA/watch",
       title: "Lista de avaliações anuais (KPIs e filtros)",
       caption:
         "KPIs por classificação, filtros via offcanvas e ações por permissão (visualizar/editar/imprimir).",
@@ -500,8 +509,9 @@ export const rhModule: Module = {
     "Resultado: avaliação objetiva do período de experiência com orientação automatizada e documentação pronta para auditoria e decisão (efetivar, treinar ou desligar).",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/lista.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIf6kubE/zKXk_gmvcPp2IPmWmYtCsA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIf6kubE/zKXk_gmvcPp2IPmWmYtCsA/watch",
       title: "Lista de Avaliações de Experiência",
       caption:
         "KPIs (Efetivar/Treinamento/Desligar), filtros offcanvas e ações por permissão (visualizar/editar/imprimir).",
@@ -542,8 +552,9 @@ export const rhModule: Module = {
     "Resultado prático: um fluxo de Job Rotation que sai do “controle em planilha” e vira processo governado — com evidência, assinatura e documento final pronto para auditoria.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/lista-jobrotation.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIWPUsPU/P7AMLnWDcPVe5ms-fAVB5w/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIWPUsPU/P7AMLnWDcPVe5ms-fAVB5w/watch",
       title: "Job Rotation — Lista e gestão",
       caption: "Listagem com filtros/paginação e acesso às ações (visualizar, editar, imprimir/PDF).",
     },
@@ -589,8 +600,9 @@ export const rhModule: Module = {
     "Resultado: visão clara da capacidade operacional da empresa, redução de riscos por ausência de pessoal-chave e base objetiva para decisões de treinamento, promoção e rotação.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/matriz.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBHfktB-E/7ARHgntru36R8dal3GcFjA/watch",
       title: "Matriz de Polivalência",
       caption:
         "Matriz por função/processo com níveis de domínio, cores e leitura rápida para gestão e auditoria.",
@@ -631,15 +643,17 @@ export const rhModule: Module = {
     "Resultado: o RH deixa de ser apenas operacional e passa a atuar de forma analítica, com dados confiáveis, rastreáveis e acionáveis para gestão e conformidade.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/relatorios.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIYS1YcU/GTaW4dU9h8rebn3KDb-6dA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIYS1YcU/GTaW4dU9h8rebn3KDb-6dA/watch",
       title: "Relatórios e Indicadores de RH",
       caption:
         "Painel consolidado com relatorios, filtros e relatórios prontos para gestão e auditoria.",
     },
      {
-      kind: "video",
-      src: "/media/rh/indicadores.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIeS_g6I/yUeC1IejRx9Sx0H_vI6klQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIeS_g6I/yUeC1IejRx9Sx0H_vI6klQ/watch",
       title: "Relatórios e Indicadores de RH",
       caption:
         "Painel consolidado com KPIs, filtros e relatórios prontos para gestão e auditoria.",
@@ -679,8 +693,9 @@ export const rhModule: Module = {
     "Observação: a Lista Mestra MRQ001 também existe no módulo de Documentos como matriz consolidada do controle documental.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/rodapes-formularios.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIWSgdwI/M3ekLzE6_ZTjNmrGDT014A/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIWSgdwI/M3ekLzE6_ZTjNmrGDT014A/watch",
       title: "Rodapés com código e revisão",
       caption:
         "Identificação padronizada do formulário (ex.: F013 Rev.03, F148 Rev.01, F176A Rev.05, F176B Rev.07...).",
@@ -724,8 +739,9 @@ export const rhModule: Module = {
     "Observação: o módulo de Banco de Horas atua de forma integrada aos módulos de Portaria, Funcionários e Relatórios, eliminando controles paralelos e fortalecendo a confiabilidade dos dados de jornada.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/rh/banco-horas.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBIanhVjM/PyvyiB4T9ICmZFH1Gu1tsA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBIanhVjM/PyvyiB4T9ICmZFH1Gu1tsA/watch",
       title: "Cadastro de Banco de Horas",
       caption:
         "Tela de lançamento do banco de horas com cálculo automático, adicionais de hora extra e integração com ocorrências da portaria.",

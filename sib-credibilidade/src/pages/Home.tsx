@@ -129,27 +129,48 @@ export default function Home() {
                       title="Clique para ampliar"
                       style={{ marginTop: "0.85rem" }}
                     >
-                      <div className="media mediaFrame16x9">
-                        {firstEvidence.kind === "video" ? (
-                          <video
-                            src={firstEvidence.src}
-                            preload="metadata"
-                            muted
-                            playsInline
-                          />
-                        ) : (
-                          <img
-                            src={firstEvidence.src}
-                            alt={firstEvidence.title}
-                            loading="lazy"
-                          />
-                        )}
-                      </div>
+                      <div className="media mediaFrame16x9" style={{ position: "relative" }}>
+  {firstEvidence.kind === "video" ? (
+    <video
+      src={firstEvidence.src}
+      preload="metadata"
+      muted
+      playsInline
+    />
+  ) : firstEvidence.kind === "embed" ? (
+    <iframe
+      src={firstEvidence.src}
+      title={firstEvidence.title}
+      loading="lazy"
+      allow="fullscreen"
+      style={{
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        border: "none",
+        pointerEvents: "none",
+      }}
+    />
+  ) : (
+    <img
+      src={firstEvidence.src}
+      alt={firstEvidence.title}
+      loading="lazy"
+    />
+  )}
+</div>
+
 
                       <div className="overviewMediaOverlay" aria-hidden="true">
-                        <span className="overviewPlayIcon">
-                          {firstEvidence.kind === "video" ? "▶" : "⤢"}
-                        </span>
+                       <span className="overviewPlayIcon">
+  {firstEvidence.kind === "video"
+    ? "▶"
+    : firstEvidence.kind === "embed"
+    ? "⧉"
+    : "⤢"}
+</span>
+
                       </div>
                     </button>
                   ) : (
@@ -233,12 +254,40 @@ export default function Home() {
             </div>
 
             <div className="viewerBody">
-              {selected.kind === "video" ? (
-                <video src={selected.src} controls autoPlay preload="metadata" />
-              ) : (
-                <img src={selected.src} alt={selected.title} />
-              )}
-            </div>
+  {selected.kind === "video" ? (
+    <video src={selected.src} controls autoPlay preload="metadata" />
+  ) : selected.kind === "embed" ? (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: 0,
+        paddingTop: "56.25%",
+        overflow: "hidden",
+        borderRadius: 14,
+        border: "1px solid rgba(255,255,255,0.10)",
+      }}
+    >
+      <iframe
+        src={selected.src}
+        title={selected.title}
+        loading="lazy"
+        allow="fullscreen"
+        allowFullScreen={true}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+        }}
+      />
+    </div>
+  ) : (
+    <img src={selected.src} alt={selected.title} />
+  )}
+</div>
+
           </div>
         </div>
       ) : null}
