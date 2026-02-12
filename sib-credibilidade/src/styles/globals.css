@@ -849,6 +849,25 @@ hr.sep{
   display: block;
 }
 
+.viewerEmbed16x9{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+  background: rgba(0,0,0,0.2);
+}
+
+.viewerEmbed16x9 iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
 @media (max-width: 520px){
   .viewerModal{
     width: calc(100% - 1rem);

@@ -71,7 +71,8 @@ export default function EvidenceGallery() {
 
       <div className="grid grid-3">
         {items.map(({ module, feature, firstEvidence, evidenceCount }) => {
-          const previewIcon = firstEvidence.kind === "video" ? "▶" : "⤢";
+          const previewIcon =  firstEvidence.kind === "video" ? "▶" : firstEvidence.kind === "embed" ? "⧉" : "⤢";
+
 
           return (
             <a
@@ -92,10 +93,26 @@ export default function EvidenceGallery() {
               <div style={{ marginTop: "0.75rem" }}>
                 <div className="media mediaFrame16x9" style={{ position: "relative" }}>
                   {firstEvidence.kind === "video" ? (
-                    <video src={firstEvidence.src} preload="metadata" muted playsInline />
-                  ) : (
-                    <img src={firstEvidence.src} alt={firstEvidence.title} loading="lazy" />
-                  )}
+  <video src={firstEvidence.src} preload="metadata" muted playsInline />
+) : firstEvidence.kind === "embed" ? (
+  <iframe
+    src={firstEvidence.src}
+    title={firstEvidence.title}
+    loading="lazy"
+    allow="fullscreen"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      border: "none",
+      pointerEvents: "none",
+    }}
+  />
+) : (
+  <img src={firstEvidence.src} alt={firstEvidence.title} loading="lazy" />
+)}
+
 
                   {/* Reaproveita overlay do design system */}
                   <div className="overviewMediaOverlay" aria-hidden="true" style={{ opacity: 1 }}>
@@ -109,10 +126,16 @@ export default function EvidenceGallery() {
                 {clampText(feature.description, 190)}
               </p>
 
-              <div className="badges" style={{ marginTop: "0.85rem" }}>
-                <span className="badge">{evidenceCount} evidência(s)</span>
-                <span className="badge">abrir →</span>
-              </div>
+             <div className="badges" style={{ marginTop: "0.85rem" }}>
+  <span className="badge">{evidenceCount} evidência(s)</span>
+
+  {firstEvidence.kind === "embed" && firstEvidence.canvasUrl ? (
+    <span className="badge">assistir →</span>
+  ) : null}
+
+  <span className="badge">abrir →</span>
+</div>
+
             </a>
           );
         })}

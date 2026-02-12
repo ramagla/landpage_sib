@@ -52,14 +52,16 @@ export const homeGeralModule: Module = {
 
         "Resultado: o Dashboard não apenas informa — ele direciona ações, reduz fricção e melhora a governança do dia a dia.",
       evidence: [
-        {
-          kind: "video",
-          src: "/media/home-geral/dashboard-home-geral.mp4",
-          title: "Home Geral em operação",
-          caption:
-            "Dashboard completo: KPIs, notícias, sugestões, canal anônimo, painel de comunicados/recados/alertas e PWA.",
-        },
-      ],
+  {
+    kind: "embed",
+    src: "https://www.canva.com/design/DAHBHMaH5Uc/Azj8EqlaCuee3v7js_nHWg/watch?embed",
+    canvasUrl: "https://www.canva.com/design/DAHBHMaH5Uc/Azj8EqlaCuee3v7js_nHWg/watch",
+    title: "Home Geral em operação",
+    caption:
+      "Dashboard completo: KPIs, notícias, sugestões, canal anônimo, painel de comunicados/recados/alertas e PWA.",
+  },
+],
+
     },
 
     {

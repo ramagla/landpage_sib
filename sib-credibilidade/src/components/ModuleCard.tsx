@@ -176,8 +176,8 @@ export default function ModuleCard({ module }: { module: Module }) {
     });
   };
 
-  const mediaOverlayIcon = (ev: Evidence) => (ev.kind === "video" ? "▶" : "⤢");
-
+const mediaOverlayIcon = (ev: Evidence) =>
+  ev.kind === "video" ? "▶" : ev.kind === "embed" ? "⧉" : "⤢";
   return (
     <div className="card moduleCard">
       <div className="moduleCardHeader">
@@ -244,10 +244,26 @@ export default function ModuleCard({ module }: { module: Module }) {
                 >
                   <div className="media mediaFrame16x9" style={{ position: "relative" }}>
                     {ev.kind === "video" ? (
-                      <video src={ev.src} preload="metadata" muted playsInline />
-                    ) : (
-                      <img src={ev.src} alt={ev.title} loading="lazy" />
-                    )}
+  <video src={ev.src} preload="metadata" muted playsInline />
+) : ev.kind === "embed" ? (
+  <iframe
+    src={ev.src}
+    title={ev.title}
+    loading="lazy"
+    allow="fullscreen"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      border: "none",
+      pointerEvents: "none",
+    }}
+  />
+) : (
+  <img src={ev.src} alt={ev.title} loading="lazy" />
+)}
+
 
                     <div className="overviewMediaOverlay" aria-hidden="true">
                       <span className="overviewPlayIcon">{mediaOverlayIcon(ev)}</span>
@@ -357,10 +373,26 @@ export default function ModuleCard({ module }: { module: Module }) {
                               >
                                 <div className="media mediaFrame16x9" style={{ position: "relative" }}>
                                   {ev.kind === "video" ? (
-                                    <video src={ev.src} preload="metadata" muted playsInline />
-                                  ) : (
-                                    <img src={ev.src} alt={ev.title} loading="lazy" />
-                                  )}
+  <video src={ev.src} preload="metadata" muted playsInline />
+) : ev.kind === "embed" ? (
+  <iframe
+    src={ev.src}
+    title={ev.title}
+    loading="lazy"
+    allow="fullscreen"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      border: "none",
+      pointerEvents: "none",
+    }}
+  />
+) : (
+  <img src={ev.src} alt={ev.title} loading="lazy" />
+)}
+
 
                                   <div className="overviewMediaOverlay" aria-hidden="true">
                                     <span className="overviewPlayIcon">{mediaOverlayIcon(ev)}</span>
@@ -403,12 +435,23 @@ export default function ModuleCard({ module }: { module: Module }) {
             </div>
 
             <div className="viewerBody">
-              {selected.kind === "video" ? (
-                <video src={selected.src} controls autoPlay preload="metadata" />
-              ) : (
-                <img src={selected.src} alt={selected.title} />
-              )}
-            </div>
+  {selected.kind === "video" ? (
+    <video src={selected.src} controls autoPlay preload="metadata" />
+  ) : selected.kind === "embed" ? (
+    <div className="viewerEmbed16x9">
+      <iframe
+        src={selected.src}
+        title={selected.title}
+        loading="lazy"
+        allow="fullscreen"
+        allowFullScreen={true}
+      />
+    </div>
+  ) : (
+    <img src={selected.src} alt={selected.title} />
+  )}
+</div>
+
           </div>
         </div>
       ) : null}
