@@ -32,8 +32,9 @@ export const metrologiaModule: Module = {
         "Todo o conteúdo apresentado é derivado de registros rastreáveis do sistema, considerando regra de vencimento aplicada à frequência de calibração e lógica de alerta por janela configurável, garantindo consistência operacional, transparência e suporte objetivo a auditorias.",
       evidence: [
         {
-          kind: "video",
-          src: "/media/metrologia/dashboard-metrologia.mp4",
+          kind: "embed",
+          src: "https://www.canva.com/design/DAHBIgRk3yg/NeQEI0IEJ-3z4ma8YdJ0Qg/watch?embed",
+          canvasUrl: "https://www.canva.com/design/DAHBIgRk3yg/NeQEI0IEJ-3z4ma8YdJ0Qg/watch",
           title: "Dashboard de Metrologia em operação",
           caption:
             "KPIs, alertas de calibração (vencidos/próximos), filtros por status/janela, atalhos de cronograma e listas de itens recentes.",
@@ -71,8 +72,9 @@ export const metrologiaModule: Module = {
       "Resultado: um cadastro técnico auditável, padronizado e preparado para sustentar planejamento de calibração, rastreabilidade e conformidade do SGQ.",
     evidence: [
       {
-        kind: "video",
-        src: "/media/metrologia/cadastro-instrumentos.mp4",
+        kind: "embed",
+        src: "https://www.canva.com/design/DAHBIiqMlWA/uKzfZVaisgVG10AfyqgBxA/watch?embed",
+        canvasUrl: "https://www.canva.com/design/DAHBIiqMlWA/uKzfZVaisgVG10AfyqgBxA/watch",
         title: "Cadastro de Instrumentos (Tabela Técnica) em operação",
         caption:
           "Formulário em acordeão, cálculo de ER, dados técnicos, identificação, foto, responsável/localização e registro de alteração.",
@@ -108,8 +110,9 @@ export const metrologiaModule: Module = {
       "Resultado: um cadastro completo e rastreável de dispositivos, com cotas e evidência técnica anexada, pronto para sustentar calibração, aferições e auditorias.",
     evidence: [
       {
-        kind: "video",
-        src: "/media/metrologia/cadastro-dispositivos.mp4",
+        kind: "embed",
+        src: "https://www.canva.com/design/DAHBMr1eEzc/gcTV_x27EKf9HT3Y6cmEcw/watch?embed",
+        canvasUrl: "https://www.canva.com/design/DAHBMr1eEzc/gcTV_x27EKf9HT3Y6cmEcw/watch",
         title: "Cadastro de Dispositivos em operação",
         caption:
           "Cadastro rápido, vínculo com cliente, anexo de desenho e gestão de cotas (mínimo/máximo) com validações e rastreabilidade.",
@@ -145,8 +148,9 @@ export const metrologiaModule: Module = {
     "Resultado: controle metrológico auditável, com regra técnica aplicada automaticamente, evidência documental anexada e consistência entre registro de calibração e cadastro do instrumento.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/metrologia/instrumentos-fluxo.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBMntVWo4/IBpCfqdeCi__YOOHQAAZjA/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBMntVWo4/IBpCfqdeCi__YOOHQAAZjA/watch",
       title: "Calibração de instrumentos (fluxo completo)",
       caption:
         "Cadastro/edição, cálculo automático (L = E + I), status aprovado/reprovado, KPIs da lista e download do certificado.",
@@ -182,8 +186,9 @@ export const metrologiaModule: Module = {
     "Resultado: calibração de dispositivos governada por cotas, com status consolidado automaticamente, evidências anexadas e rastreabilidade pronta para auditoria.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/metrologia/dispositivos-fluxo.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBMjat_KE/lO-rcVw0dID-mkGiU9WCTQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBMjat_KE/lO-rcVw0dID-mkGiU9WCTQ/watch",
       title: "Calibração de dispositivos (fluxo completo)",
       caption:
         "Carregamento de cotas, registro de aferições, status consolidado, anexo, filtros/KPIs e rastreabilidade por dispositivo.",
@@ -212,8 +217,9 @@ export const metrologiaModule: Module = {
     "Todo o conteúdo exibido nos cronogramas é derivado de registros estruturados e filtros controlados, reforçando rastreabilidade e evidência objetiva para auditorias e gestão de conformidade.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/metrologia/cronogramas/cronogramas-calibracao.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBMs2eN1Q/VWhgjSG1k8yrZAFagaKdDw/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBMs2eN1Q/VWhgjSG1k8yrZAFagaKdDw/watch",
       title: "Cronogramas de calibração em operação (equipamentos e dispositivos)",
       caption:
         "Filtros, geração do relatório (CR001/CR006), cálculo de próxima calibração, visão consolidada e impressão padronizada.",
@@ -221,8 +227,6 @@ export const metrologiaModule: Module = {
   ],
   
 },
-
-
 
 
 {
@@ -250,8 +254,9 @@ export const metrologiaModule: Module = {
     "Todos os relatórios são controlados por permissões específicas do módulo, garantindo segregação de acesso e rastreabilidade operacional.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/metrologia/relatorios/relatorios-metrologia.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBMsGGuuY/a89m4Rrh2LF22_Tz2gBYfg/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBMsGGuuY/a89m4Rrh2LF22_Tz2gBYfg/watch",
       title: "Relatórios de Metrologia em operação",
       caption:
         "Relatório de equipamentos a calibrar (vencidos/próximos), seleção por colaborador (F198) e solicitação de orçamento para calibração (F062) com impressão.",
@@ -283,8 +288,9 @@ export const metrologiaModule: Module = {
     "Resultado: sempre que houver reprovação metrológica, o sistema abre automaticamente a tratativa com evidência técnica padronizada, fortalecendo disciplina do SGQ, rastreabilidade e preparação para auditorias.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/metrologia/analise-critica/analise-critica-metrologia.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBMkQGgn8/Poylq9KasbY_jLbe8n6tXQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBMkQGgn8/Poylq9KasbY_jLbe8n6tXQ/watch",
       title: "Análise Crítica Metrológica em operação",
       caption:
         "Geração automática em reprovação (instrumentos/dispositivos), composição do texto técnico com valores e cotas reprovadas, e gestão de análises críticas (listar/visualizar/editar).",

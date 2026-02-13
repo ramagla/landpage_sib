@@ -34,8 +34,9 @@ export const qualidadeFornecimentoModule: Module = {
       "Resultado: um painel único para gestão de fornecedores, com KPIs claros, evidências recentes e atalhos para relatórios formais e qualificação, reduzindo risco de fornecimento e aumentando previsibilidade operacional.",
     evidence: [
       {
-        kind: "video",
-        src: "/media/qualidade-fornecimento/dashboard-qualidade-fornecimento.mp4",
+        kind: "embed",
+        src: "https://www.canva.com/design/DAHBM7tNMqc/-aacnKOEKIm6pdH1LqX_jA/watch?embed",
+        canvasUrl: "https://www.canva.com/design/DAHBM7tNMqc/-aacnKOEKIm6pdH1LqX_jA/watch",
         title: "Dashboard de Qualidade de Fornecimento em operação",
         caption:
           "Atalhos (F228/TB001), filtros em offcanvas, KPIs (F045/Serviço Externo/IQG/IQF-IP), velocímetro do IQG e últimos relatórios F045.",
@@ -76,8 +77,9 @@ export const qualidadeFornecimentoModule: Module = {
     "Resultado: um cadastro de fornecedores robusto e guiado por regras, com automações de status/prazos/score e controle de evidências (certificados), reduzindo falhas de registro e fortalecendo a rastreabilidade e a conformidade na gestão do fornecimento.",
   evidence: [
     {
-      kind: "video",
-      src: "/media/qualidade-fornecimento/cadastro-fornecedor.mp4",
+      kind: "embed",
+      src: "https://www.canva.com/design/DAHBM9b3IbM/PtJTSlzTFTdp9NYEGZFSNQ/watch?embed",
+      canvasUrl: "https://www.canva.com/design/DAHBM9b3IbM/PtJTSlzTFTdp9NYEGZFSNQ/watch",
       title: "Cadastro de Fornecedor Qualificado (TB001) em operação",
       caption:
         "Form em accordion, campos automáticos (status/score/prazos), regras condicionais (Calibração + RBC / Material do Cliente), validações e anexo de certificado.",
